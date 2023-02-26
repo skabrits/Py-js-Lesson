@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+<style>
+.red-button{
+	background-color: #ff0000
+}
+</style>
+
+<title>Form for registration</title>
+<meta charset="UTF-8"></meta>
+</head>
+
+<body>
+	<h1>Registration form</h1>
+	<p>Fill in reg data</p>
+
+	<form onsubmit="return false">
+		<label>e-mail</label><br>
+		<input type="email" id="form_email"></input><br><br>
+		<label>password</label><br>
+		<input type="password" id="form_pass"></input><br><br>
+		<button class="red-button" onClick="submitForm();" id="the_button">Submit</button>
+	</form>
+
+	<details>
+		<summary>See registration data</summary>
+		<table>
+			<tr>
+			  <th>Name field</th>
+			  <th>Value field</th>
+			</tr>
+			<tr>
+			  <td>Email</td>
+			  <td id="table_email">-</td>
+			</tr>
+			<tr>
+			  <td>Password</td>
+			  <td id="table_pass">-</td>
+			</tr>
+			<tr>
+			  <td>ID</td>
+			  <td id="table_id">-</td>
+			</tr>
+		</table>
+	</details>
+
+</body>
+
+<script>
+	function submitForm(){
+		var email = document.getElementById("form_email").value;
+		var pass = document.getElementById("form_pass").value;
+		var form_id = Math.round(Math.random()*10000000);
+
+		document.getElementById("table_email").innerHTML = email;
+		document.getElementById("table_pass").innerHTML = pass;
+		document.getElementById("table_id").innerHTML = form_id;
+
+		alert("Email " + email.toString() + " Password " + pass.toString());
+	}
+</script>
